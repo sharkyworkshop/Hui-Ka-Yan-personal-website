@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>许家印 · 公开信息档案｜从首富到无期</title>
+<meta name="description" content="许家印与恒大集团公开信息档案：时间线、监管处罚、司法进程与一审判决，资料均来自公开报道，非官方立场。">
+<style>
+/* ============ 基础 ============ */
+:root{
+  --bg:#05070d; --bg2:#080c16;
+  --gold:#e8c37a; --gold-hi:#ffdfa8;
+  --cyan:#4fd8e8; --violet:#8b7bff; --red:#ff4d5e; --green:#5ce1a6;
+  --txt:#e9eef7; --dim:#9aa7bd; --dim2:#6f7d94;
+  --line:rgba(255,255,255,.10);
+  --glass:rgba(255,255,255,.045);
+  --glass2:rgba(255,255,255,.075);
+  --mx:50%; --my:30%;
+  --r:18px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --pop:cubic-bezier(.34,1.56,.64,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--txt);
+  font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  line-height:1.75; letter-spacing:.01em;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+body.no-cursor,body.no-cursor *{cursor:none !important}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+::selection{background:rgba(232,195,122,.28)}
+
+/* ============ 背景层 ============ */
+#aurora{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
+.grain{
+  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.35;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/><feColorMatrix type='saturate' values='0'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='.35'/></svg>");
+  mix-blend-mode:overlay;
+}
+.spot{
+  position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(520px circle at var(--mx) var(--my), rgba(232,195,122,.10), rgba(79,216,232,.05) 45%, transparent 70%);
+  transition:background .12s linear;
+}
+
+/* ============ 光标 / 进度 ============ */
+.cursor{
+  position:fixed;top:0;left:0;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;
+  border:1px solid rgba(232,195,122,.75);z-index:99;pointer-events:none;
+  transition:width .18s var(--ease),height .18s var(--ease),margin .18s var(--ease),background .18s,border-color .18s,opacity .3s;
+  mix-blend-mode:screen;
+}
+.cursor.dot{background:rgba(232,195,122,.14)}
+.cursor.hot{width:66px;height:66px;margin:-33px 0 0 -33px;border-color:rgba(79,216,232,.85);background:radial-gradient(circle,rgba(79,216,232,.16),transparent 70%)}
+.cursor.hide{opacity:0}
+#pbar{position:fixed;top:0;left:0;height:2px;width:0;z-index:100;
+  background:linear-gradient(90deg,var(--gold),var(--cyan),var(--violet));
+  box-shadow:0 0 14px rgba(232,195,122,.8);transition:width .1s linear}
+
+/* ============ 导航 ============ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;gap:18px;
+  padding:14px clamp(16px,4vw,42px);
+  background:linear-gradient(180deg,rgba(5,7,13,.82),rgba(5,7,13,.25) 70%,transparent);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+.nav .brand{font-weight:800;letter-spacing:.16em;font-size:13px;color:var(--gold);white-space:nowrap}
+.nav .brand small{display:block;font-weight:400;letter-spacing:.04em;color:var(--dim2);font-size:10.5px}
+.nav .links{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.nav .links a{
+  color:var(--dim);font-size:13px;padding:7px 11px;border-radius:999px;border:1px solid transparent;
+  transition:.25s var(--ease);text-decoration:none;
+}
+.nav .links a:hover{color:var(--txt);background:var(--glass);border-color:var(--line);text-decoration:none}
+
+/* ============ 版式 ============ */
+main{position:relative;z-index:2}
+section{padding:clamp(64px,9vw,128px) clamp(18px,5vw,56px);position:relative}
+.wrap{max-width:1100px;margin:0 auto}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.24em;color:var(--gold);
+  text-transform:uppercase;margin:0 0 16px
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+h1,h2,h3{line-height:1.25;margin:0 0 14px}
+h2{font-size:clamp(24px,3.6vw,40px);letter-spacing:.02em}
+h3{font-size:clamp(17px,1.6vw,20px)}
+p{margin:0 0 14px;color:#cfd8e8}
+.lead{font-size:clamp(15px,1.55vw,18px);color:#dbe4f2}
+.muted{color:var(--dim)}
+.tiny{font-size:12.5px;color:var(--dim2);line-height:1.7}
+
+/* 卡片 */
+.card{
+  position:relative;background:var(--glass);border:1px solid var(--line);border-radius:var(--r);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  padding:22px;overflow:hidden;
+  box-shadow:0 18px 50px -28px rgba(0,0,0,.9), inset 0 1px 0 rgba(255,255,255,.05);
+  transition:transform .45s var(--ease),border-color .45s,box-shadow .45s,background .45s;
+}
+.card::after{ /* 流光描边 */
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+  background:conic-gradient(from var(--a,0deg), transparent 0 55%, rgba(232,195,122,.9) 70%, rgba(79,216,232,.9) 82%, transparent 92%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .5s;
+}
+.card:hover{transform:translateY(-5px);border-color:rgba(232,195,122,.35);background:var(--glass2);
+  box-shadow:0 26px 60px -26px rgba(0,0,0,.95), 0 0 34px -14px rgba(232,195,122,.4), inset 0 1px 0 rgba(255,255,255,.07)}
+.card:hover::after{opacity:1;animation:spin 3.4s linear infinite}
+@keyframes spin{to{--a:360deg}}
+@property --a{syntax:'<angle>';initial-value:0deg;inherits:false}
+
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:860px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+/* 按钮 */
+.btn{
+  position:relative;display:inline-flex;align-items:center;gap:10px;
+  padding:13px 24px;border-radius:999px;border:1px solid rgba(232,195,122,.5);
+  background:linear-gradient(180deg,rgba(232,195,122,.18),rgba(232,195,122,.06));
+  color:var(--gold-hi);font:inherit;font-weight:700;font-size:14.5px;letter-spacing:.06em;
+  cursor:pointer;overflow:hidden;isolation:isolate;
+  transition:transform .22s var(--pop),box-shadow .3s,border-color .3s,background .3s;
+  box-shadow:0 0 0 0 rgba(232,195,122,.4), 0 10px 30px -14px rgba(232,195,122,.6);
+}
+.btn:hover{border-color:var(--gold-hi);box-shadow:0 0 26px -4px rgba(232,195,122,.55),0 14px 34px -16px rgba(232,195,122,.7)}
+.btn:active{transform:scale(.955);box-shadow:inset 0 4px 14px rgba(0,0,0,.55)}
+.btn.ghost{border-color:var(--line);background:var(--glass);color:var(--txt);box-shadow:none}
+.btn.ghost:hover{border-color:rgba(79,216,232,.6);box-shadow:0 0 22px -6px rgba(79,216,232,.5)}
+.btn:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.btn .rip{position:absolute;border-radius:50%;transform:translate(-50%,-50%) scale(0);pointer-events:none;
+  background:radial-gradient(circle,rgba(255,255,255,.5),transparent 65%);animation:rip .65s var(--ease) forwards}
+@keyframes rip{to{transform:translate(-50%,-50%) scale(1);opacity:0}}
+
+/* ============ Hero ============ */
+#hero{min-height:100svh;display:flex;align-items:center;padding-top:110px}
+.hero-name{
+  font-size:clamp(56px,15vw,190px);font-weight:900;letter-spacing:.06em;line-height:.92;margin:0 0 6px;
+  background:linear-gradient(180deg,#fff 6%,var(--gold-hi) 38%,var(--gold) 62%,#8a6a2c 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 34px rgba(232,195,122,.32));
+}
+.hero-en{font-size:clamp(10px,1.1vw,13px);letter-spacing:.52em;color:var(--dim2);text-transform:uppercase;margin:0 0 26px}
+.anchors{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 30px}
+.chip{
+  font-size:12.5px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--glass);
+  color:#cbd5e6;transition:.3s var(--ease)
+}
+.chip:hover{border-color:rgba(232,195,122,.45);color:var(--gold-hi);transform:translateY(-2px)}
+.chip.red{border-color:rgba(255,77,94,.4);color:#ffb3bb;background:rgba(255,77,94,.08)}
+.hintbar{display:flex;align-items:center;gap:10px;margin-top:20px;font-size:12.5px;color:var(--dim2)}
+.eq{display:inline-flex;gap:2.5px;align-items:flex-end;height:14px}
+.eq i{width:3px;background:var(--cyan);border-radius:2px;height:30%;animation:eq .9s ease-in-out infinite}
+.eq i:nth-child(2){animation-delay:.15s}.eq i:nth-child(3){animation-delay:.3s}.eq i:nth-child(4){animation-delay:.45s}
+@keyframes eq{0%,100%{height:25%}50%{height:100%}}
+.eq.off i{animation-play-state:paused;background:var(--dim2)}
+
+/* ============ 数字卡 ============ */
+.numcard{text-align:left}
+.num{
+  font-size:clamp(30px,4.6vw,52px);font-weight:800;line-height:1.05;letter-spacing:.01em;
+  font-variant-numeric:tabular-nums;
+  background:linear-gradient(180deg,#fff,var(--gold) 88%);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.num.cy{background:linear-gradient(180deg,#fff,var(--cyan) 88%);-webkit-background-clip:text;background-clip:text}
+.num.rd{background:linear-gradient(180deg,#fff,#ff8b95 88%);-webkit-background-clip:text;background-clip:text}
+.num .u{font-size:.42em;font-weight:600;margin-left:5px;color:var(--dim);-webkit-text-fill-color:var(--dim)}
+
+/* ============ 时间轴 ============ */
+.tl{position:relative;margin-top:34px;padding-left:34px}
+.tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(180deg,transparent,rgba(232,195,122,.55) 8%,rgba(79,216,232,.45) 55%,rgba(255,77,94,.6) 96%,transparent)}
+.node{position:relative;margin:0 0 16px}
+.node::before{
+  content:"";position:absolute;left:-30px;top:26px;width:12px;height:12px;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 0 4px rgba(232,195,122,.14),0 0 20px rgba(232,195,122,.9);
+  transition:.4s var(--ease)
+}
+.node:hover::before{transform:scale(1.35);background:var(--cyan);box-shadow:0 0 0 6px rgba(79,216,232,.16),0 0 26px rgba(79,216,232,.95)}
+.node.hot::before{background:var(--red);box-shadow:0 0 0 4px rgba(255,77,94,.18),0 0 24px rgba(255,77,94,.95)}
+.node .d{font-size:12.5px;letter-spacing:.14em;color:var(--gold);font-variant-numeric:tabular-nums}
+.node .t{font-weight:700;margin:2px 0 6px;font-size:16.5px}
+.node .x{color:#c6d0e0;font-size:14.5px;margin:0}
+.node .s{display:block;margin-top:8px;font-size:11.5px;color:var(--dim2);letter-spacing:.02em}
+.node.final .card{border-color:rgba(255,77,94,.4);background:linear-gradient(180deg,rgba(255,77,94,.07),var(--glass))}
+
+/* ============ 判决 ============ */
+.charges{display:flex;flex-wrap:wrap;gap:9px;margin:6px 0 22px}
+.charge{
+  font-size:13px;padding:8px 15px;border-radius:11px;border:1px solid rgba(255,77,94,.32);
+  background:rgba(255,77,94,.09);color:#ffc2c8;transition:.3s var(--ease)
+}
+.charge:hover{transform:translateY(-3px);box-shadow:0 0 22px -6px rgba(255,77,94,.7);border-color:rgba(255,77,94,.7)}
+.sent{
+  font-size:clamp(19px,2.4vw,27px);font-weight:800;letter-spacing:.02em;
+  background:linear-gradient(90deg,#fff,#ffb3bb 70%);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.kv{display:flex;gap:12px;padding:11px 0;border-bottom:1px dashed rgba(255,255,255,.09);font-size:14px}
+.kv:last-child{border-bottom:0}
+.kv b{flex:0 0 116px;color:var(--gold);font-weight:600}
+.kv span{color:#ccd6e6}
+
+/* ============ 折叠 ============ */
+details.acc{border:1px solid var(--line);border-radius:14px;background:var(--glass);margin-bottom:10px;overflow:hidden}
+details.acc summary{
+  cursor:pointer;padding:15px 18px;font-weight:600;font-size:15px;list-style:none;
+  display:flex;justify-content:space-between;gap:12px;align-items:center;transition:.3s
+}
+details.acc summary::-webkit-details-marker{display:none}
+details.acc summary::after{content:"＋";color:var(--gold);font-size:17px;transition:.35s var(--ease)}
+details.acc[open] summary::after{transform:rotate(135deg)}
+details.acc summary:hover{background:var(--glass2)}
+details.acc .body{padding:0 18px 18px;color:#c6d0e0;font-size:14.5px}
+
+/* ============ 媒体 ============ */
+.stage{
+  position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);
+  background:#000;box-shadow:0 40px 90px -40px rgba(0,0,0,1), 0 0 60px -30px rgba(232,195,122,.5);
+}
+.stage video{display:block;width:100%;max-height:66vh;background:#000}
+.stage .badge{
+  position:absolute;left:14px;top:14px;z-index:3;font-size:11.5px;letter-spacing:.06em;
+  padding:6px 12px;border-radius:999px;background:rgba(0,0,0,.55);border:1px solid var(--line);color:#ffd9de;
+  backdrop-filter:blur(6px)
+}
+.stage .vl{position:absolute;inset:auto 0 0 0;height:78px;pointer-events:none;
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,.72))}
+#viz{position:absolute;left:0;right:0;bottom:0;height:60px;width:100%;pointer-events:none;opacity:.95}
+.veil{position:absolute;inset:0;z-index:2;display:grid;place-items:center;pointer-events:none;
+  background:radial-gradient(circle at 50% 55%, rgba(232,195,122,.12), rgba(0,0,0,.62) 72%);
+  color:var(--gold-hi);font-size:13.5px;letter-spacing:.1em;text-align:center;padding:0 18px;
+  transition:opacity .5s var(--ease)}
+.veil.off{opacity:0}
+.mediabar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
+.mediabar .sp{flex:1}
+.hint{font-size:12.5px;color:var(--dim2)}
+.pill{font-size:12px;color:var(--dim);border:1px solid var(--line);padding:5px 11px;border-radius:999px;background:var(--glass)}
+
+/* ============ 来源 ============ */
+.srcs{counter-reset:s;list-style:none;padding:0;margin:0}
+.srcs li{
+  counter-increment:s;position:relative;padding:11px 0 11px 46px;font-size:13.5px;
+  color:#c3cddd;border-bottom:1px solid rgba(255,255,255,.06)
+}
+.srcs li::before{
+  content:counter(s,decimal-leading-zero);position:absolute;left:0;top:11px;width:32px;
+  font-size:11.5px;color:var(--gold);font-variant-numeric:tabular-nums;letter-spacing:.06em
+}
+.srcs em{display:block;color:var(--dim2);font-style:normal;font-size:11.5px;margin-top:3px;word-break:break-all}
+
+/* ============ 免责 ============ */
+#disclaimer{border-top:1px solid var(--line);background:linear-gradient(180deg,transparent,rgba(255,77,94,.05))}
+.disc{border-left:2px solid rgba(255,77,94,.6);padding:2px 0 2px 16px}
+
+/* ============ 浮动播放器 ============ */
+.player{
+  position:fixed;right:clamp(12px,2.4vw,26px);bottom:clamp(12px,2.4vw,26px);z-index:60;
+  width:min(340px,calc(100vw - 28px));
+  background:rgba(10,14,24,.78);border:1px solid var(--line);border-radius:18px;
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:0 24px 60px -26px rgba(0,0,0,1), 0 0 40px -22px rgba(79,216,232,.55);
+  padding:13px 14px 12px;transform:translateY(0);transition:.4s var(--ease)
+}
+.player.hidden{transform:translateY(130%);opacity:0;pointer-events:none}
+.player .row{display:flex;align-items:center;gap:10px}
+.pbtn{
+  width:42px;height:42px;flex:0 0 42px;border-radius:50%;border:1px solid rgba(232,195,122,.5);
+  background:linear-gradient(180deg,rgba(232,195,122,.2),rgba(232,195,122,.05));color:var(--gold-hi);
+  font-size:15px;cursor:pointer;display:grid;place-items:center;
+  transition:transform .2s var(--pop),box-shadow .3s
+}
+.pbtn:hover{box-shadow:0 0 22px -5px rgba(232,195,122,.75)}
+.pbtn:active{transform:scale(.92)}
+.pbtn.sm{width:32px;height:32px;flex-basis:32px;font-size:12.5px;border-color:var(--line);color:var(--dim);background:var(--glass)}
+.pbtn.sm.on{color:var(--cyan);border-color:rgba(79,216,232,.6);box-shadow:0 0 18px -6px rgba(79,216,232,.8)}
+.ptitle{font-size:12px;color:var(--dim);line-height:1.35;min-width:0}
+.ptitle b{display:block;color:var(--txt);font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.seek{position:relative;height:6px;border-radius:999px;background:rgba(255,255,255,.12);margin:11px 0 8px;cursor:pointer}
+.seek i{position:absolute;inset:0 auto 0 0;width:0;border-radius:999px;
+  background:linear-gradient(90deg,var(--gold),var(--cyan));box-shadow:0 0 12px rgba(232,195,122,.7)}
+.seek b{position:absolute;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;left:0;border-radius:50%;
+  background:#fff;box-shadow:0 0 12px rgba(255,255,255,.7);transition:transform .2s}
+.seek:hover b{transform:scale(1.25)}
+input[type=range]{-webkit-appearance:none;appearance:none;height:4px;border-radius:999px;background:rgba(255,255,255,.15);outline:none;width:100%}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px rgba(232,195,122,.9);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:13px;height:13px;border:0;border-radius:50%;background:var(--gold);cursor:pointer}
+.vol{display:flex;align-items:center;gap:8px;flex:1;min-width:96px}
+.time{font-size:11.5px;color:var(--dim2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.err{display:none;margin-top:9px;font-size:12px;color:#ffb3bb;background:rgba(255,77,94,.1);
+  border:1px solid rgba(255,77,94,.32);border-radius:10px;padding:8px 10px}
+.err.show{display:block}
+.filepick{display:inline-flex;align-items:center;gap:7px;margin-top:9px;font-size:12px;color:var(--cyan);
+  border:1px dashed rgba(79,216,232,.5);border-radius:10px;padding:7px 11px;cursor:pointer}
+.filepick input{display:none}
+
+/* ============ 进场动画 ============ */
+.rv{opacity:0;transform:translateY(26px) scale(.985);filter:blur(7px);
+  transition:opacity .85s var(--ease),transform .85s var(--ease),filter .85s var(--ease)}
+.rv.in{opacity:1;transform:none;filter:none}
+.toast{
+  position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);z-index:80;opacity:0;
+  background:rgba(10,14,24,.9);border:1px solid var(--line);border-radius:999px;padding:9px 16px;
+  font-size:12.5px;color:var(--txt);backdrop-filter:blur(12px);transition:.35s var(--ease);pointer-events:none
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+footer{padding:34px clamp(18px,5vw,56px) 120px;color:var(--dim2);font-size:12.5px;position:relative;z-index:2}
+.kbd{font-family:ui-monospace,Consolas,monospace;font-size:11.5px;border:1px solid var(--line);
+  border-radius:6px;padding:1px 6px;background:rgba(255,255,255,.05);color:var(--dim)}
+
+/* ============ 降级 ============ */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;filter:none;transition:none}
+  .card:hover{transform:none}
+  .card:hover::after{animation:none;opacity:.5}
+  .node::before{transition:none}
+  .eq i{animation:none;height:55%}
+  #aurora{opacity:.55}
+}
+@media(max-width:720px){
+  .nav .links{display:none}
+  .player{width:calc(100vw - 24px)}
+  .stage video{max-height:46vh}
+}
+</style>
+</head>
+<body>
+<canvas id="aurora" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="spot" aria-hidden="true"></div>
+<div id="cursor" class="cursor" aria-hidden="true"></div>
+<div id="pbar" aria-hidden="true"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<nav class="nav">
+  <div class="brand">许家印 · 公开信息档案<small>PUBLIC RECORD ARCHIVE</small></div>
+  <div class="links">
+    <a href="#facts">速览</a>
+    <a href="#numbers">数据</a>
+    <a href="#timeline">时间线</a>
+    <a href="#verdict">判决</a>
+    <a href="#media">音画</a>
+    <a href="#glossary">名词</a>
+    <a href="#sources">来源</a>
+  </div>
+</nav>
+
+<main>
+<!-- ================= HERO ================= -->
+<section id="hero">
+  <div class="wrap">
+    <p class="eyebrow rv">公开信息综述 · 更新至 2026 年 9 月</p>
+    <h1 class="hero-name rv">许家印</h1>
+    <p class="hero-en rv">Xu Jiayin &nbsp;/&nbsp; Evergrande Founder</p>
+    <p class="lead rv" style="max-width:62ch">
+      从河南农村少年到中国首富，从万亿房企到资不抵债，从港交所敲钟到被取消上市地位；
+      2026 年 8 月 20 日，深圳市中级人民法院一审判处其<strong style="color:#ffb3bb">无期徒刑</strong>，
+      剥夺政治权利终身，并处没收个人全部财产。本页只整理<strong>公开报道</strong>中的事实与时间节点。
+    </p>
+    <div class="anchors rv">
+      <span class="chip">1958 · 生于河南太康</span>
+      <span class="chip">1996 · 创立恒大</span>
+      <span class="chip">2009 · 港交所上市</span>
+      <span class="chip">2017 · 中国首富</span>
+      <span class="chip">2023-09-28 · 被采取强制措施</span>
+      <span class="chip">2024-01-29 · 香港清盘令</span>
+      <span class="chip">2025-08-25 · 恒大除牌</span>
+      <span class="chip red">2026-08-20 · 一审无期</span>
+    </div>
+    <div class="rv" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+      <button class="btn" id="startBtn">▶ 开启音画档案</button>
+      <a class="btn ghost" href="#timeline">查看完整时间线</a>
+    </div>
+    <div class="hintbar rv">
+      <span class="eq off" id="heroEq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span>点击上面的按钮后才会播放《空城计の小曲》——浏览器要求先有一次用户操作，不是故障。</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 速览 ================= -->
+<section id="facts">
+  <div class="wrap">
+    <p class="eyebrow rv">01 / 人物速览</p>
+    <h2 class="rv">档案卡</h2>
+    <p class="muted rv" style="max-width:70ch">只列可确证的公开信息；无法确证的字段一律写「未见权威公开来源」，不做推测填空。</p>
+    <div class="grid g3" style="margin-top:26px">
+      <div class="card tilt rv"><h3>基本身份</h3>
+        <div class="kv"><b>姓名</b><span>许家印（Xu Jiayin）</span></div>
+        <div class="kv"><b>出生</b><span>1958 年 10 月，河南省周口市太康县</span></div>
+        <div class="kv"><b>教育</b><span>武汉钢铁学院（今武汉科技大学）冶金系</span></div>
+        <div class="kv"><b>早年经历</b><span>河南舞阳钢铁公司任职，1992 年南下深圳</span></div>
+      </div>
+      <div class="card tilt rv"><h3>商业轨迹</h3>
+        <div class="kv"><b>创立</b><span>1996 年于广州创办恒大实业集团，首个项目为金碧花园</span></div>
+        <div class="kv"><b>上市</b><span>2009-11-05 中国恒大在港交所主板上市，股份代号 3333</span></div>
+        <div class="kv"><b>改名</b><span>2016 年公司更名为「中国恒大集团」</span></div>
+        <div class="kv"><b>巅峰</b><span>2017 年登顶胡润百富榜中国首富</span></div>
+      </div>
+      <div class="card tilt rv"><h3>现状（截至 2026 年 9 月）</h3>
+        <div class="kv"><b>判决</b><span>2026-08-20 深圳中院一审：无期徒刑、剥夺政治权利终身、没收个人全部财产</span></div>
+        <div class="kv"><b>公司</b><span>中国恒大已于 2025-08-25 被港交所取消上市地位</span></div>
+        <div class="kv"><b>清盘</b><span>香港高等法院 2024-01-29 颁令清盘，清盘人持续追收资产</span></div>
+        <div class="kv"><b>上诉</b><span>截至本页撰写时，未见公开的二审信息</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 数字 ================= -->
+<section id="numbers">
+  <div class="wrap">
+    <p class="eyebrow rv">02 / 量级</p>
+    <h2 class="rv">四个数字</h2>
+    <p class="muted rv" style="max-width:70ch">
+      以下数字均取自公开披露或公开报道的<strong>近似量级</strong>，口径与截止日不同，不能直接相互加减，也不构成任何投资判断；一切以官方公告为准。
+    </p>
+    <div class="grid g4" style="margin-top:26px">
+      <div class="card numcard rv">
+        <div class="num" data-count="24374.1" data-dec="1">0<span class="u">亿元</span></div>
+        <p class="tiny" style="margin-top:8px">恒大集团披露的截至 2022-12-31 总负债规模（人民币）。来源：公司年报口径，据公开报道整理。</p>
+      </div>
+      <div class="card numcard rv">
+        <div class="num cy" data-count="3500" data-dec="0">0<span class="u">亿港元</span></div>
+        <p class="tiny" style="margin-top:8px">清盘人截至 2025-07-31 收到的债权证明申报总额（约 450 亿美元），共 187 份。来源：清盘进展报告，财联社报道。</p>
+      </div>
+      <div class="card numcard rv">
+        <div class="num rd" data-count="158.2" data-dec="1">0<span class="u">亿元</span></div>
+        <p class="tiny" style="margin-top:8px">2026-08-20 一审对被告单位恒大集团、恒大地产判处的罚金合计（人民币）。来源：深圳中院通报及媒体报道。</p>
+      </div>
+      <div class="card numcard rv">
+        <div class="num" data-count="56" data-dec="0">0<span class="u">人</span></div>
+        <p class="tiny" style="margin-top:8px">同案被判处有期徒刑的恒大系人员数量（刑期 18 年至 1 年 10 个月）。来源：深圳中院通报及媒体报道。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 时间轴 ================= -->
+<section id="timeline">
+  <div class="wrap">
+    <p class="eyebrow rv">03 / 时间线</p>
+    <h2 class="rv">从金碧花园到一审宣判</h2>
+    <p class="muted rv" style="max-width:70ch">每一条都标注了日期与来源标签。凡属「据公开报道」「未见公开结果」的事项，页面如实保留不确定性。</p>
+
+    <div class="tl">
+      <div class="node rv"><div class="card"><div class="d">1958-10</div><div class="t">出生于河南太康</div>
+        <p class="x">生于河南省周口市太康县一个普通农村家庭，后考入武汉钢铁学院冶金系。</p><span class="s">来源：公开履历与主流媒体人物报道</span></div></div>
+
+      <div class="node rv"><div class="card"><div class="d">1992</div><div class="t">南下深圳</div>
+        <p class="x">离开河南舞阳钢铁公司，到深圳进入中达集团工作，开始接触房地产与贸易业务。</p><span class="s">来源：公开履历与媒体人物报道</span></div></div>
+
+      <div class="node rv"><div class="card"><div class="d">1996</div><div class="t">在广州创立恒大</div>
+        <p class="x">创办恒大实业集团（恒大地产前身），首个楼盘项目为广州金碧花园，以「小面积、低价格、快周转」起步。</p><span class="s">来源：公开报道与公司沿革</span></div></div>
+
+      <div class="node rv"><div class="card"><div class="d">2009-11-05</div><div class="t">港交所上市</div>
+        <p class="x">中国恒大在港交所主板挂牌，股份代号 3333，成为当时在港上市规模最大的内地民营房企之一。</p><span class="s">来源：港交所及公司公告</span></div></div>
+
+      <div class="node rv"><div class="card"><div class="d">2010 起</div><div class="t">文体扩张与多元化</div>
+        <p class="x">接手广州足球俱乐部（后更名广州恒大淘宝），组建恒大女排；其后陆续进入矿泉水、粮油、乳业、文旅、保险、银行等板块。</p><span class="s">来源：公司公告与公开报道</span></div></div>
+
+      <div class="node rv"><div class="card"><div class="d">2016-06</div><div class="t">更名「中国恒大集团」</div>
+        <p class="x">恒大地产更名为中国恒大集团，形成地产为主、多元业务并行的架构。</p><span class="s">来源：公司公告</span></div></div>
+
+      <div class="node rv"><div class="card"><div class="d">2017</div><div class="t">登顶中国首富</div>
+        <p class="x">凭借恒大股价与规模扩张，许家印位列胡润百富榜中国第一，恒大在建项目遍布全国数百个城市。</p><span class="s">来源：2017 年胡润百富榜及媒体统计</span></div></div>
+
+      <div class="node rv"><div class="card"><div class="d">2020-08</div><div class="t">「三条红线」与融资收紧</div>
+        <p class="x">监管部门推出房地产企业融资「三条红线」规则，长期依赖高杠杆、借新还旧的模式开始承压。</p><span class="s">来源：监管政策与公开报道</span></div></div>
+
+      <div class="node rv"><div class="card"><div class="d">2021-09</div><div class="t">恒大财富兑付危机</div>
+        <p class="x">恒大财富理财产品出现兑付困难，投资者聚集维权，流动性问题公开化。</p><span class="s">来源：公开报道</span></div></div>
+
+      <div class="node hot rv"><div class="card"><div class="d">2021-12-03</div><div class="t">首笔美元债违约</div>
+        <p class="x">中国恒大公告称一笔约 2.6 亿美元担保义务未能履行，被视为正式违约；其后广东省政府工作组进驻恒大。</p><span class="s">来源：公司公告与公开报道</span></div></div>
+
+      <div class="node rv"><div class="card"><div class="d">2022-06-27</div><div class="t">首次清盘呈请</div>
+        <p class="x">佳盛环球向香港高等法院提出对中国恒大的清盘呈请，涉及财务义务约 8.63 亿港元。</p><span class="s">来源：公司公告与港媒报道</span></div></div>
+
+      <div class="node rv"><div class="card"><div class="d">2023-08</div><div class="t">在美申请破产保护</div>
+        <p class="x">中国恒大依据美国破产法第 15 章向纽约法院申请承认境外重组程序，以保护其在美资产。</p><span class="s">来源：公开报道与法院文件报道</span></div></div>
+
+      <div class="node hot rv"><div class="card"><div class="d">2023-09-28</div><div class="t">被依法采取强制措施</div>
+        <p class="x">中国恒大发布公告：公司执行董事及董事会主席许家印因涉嫌违法犯罪，已被依法采取强制措施。</p><span class="s">来源：中国恒大公告（2023-09-28）</span></div></div>
+
+      <div class="node hot rv"><div class="card"><div class="d">2024-01-29</div><div class="t">香港高等法院颁令清盘</div>
+        <p class="x">香港高等法院对中国恒大颁布清盘令，并委任清盘人；中国恒大股份同日停牌。</p><span class="s">来源：公司公告与港交所资料</span></div></div>
+
+      <div class="node rv"><div class="card"><div class="d">2024-05-31</div><div class="t">证监会行政处罚</div>
+        <p class="x">据公开报道，中国证监会对恒大地产作出行政处罚：恒大地产被罚 41.75 亿元；许家印被罚 4700 万元并被采取终身证券市场禁入措施，事由涉及年报虚假记载与欺诈发行。</p><span class="s">来源：中国证监会行政处罚（据公开报道整理）</span></div></div>
+
+      <div class="node rv"><div class="card"><div class="d">2025-07-31</div><div class="t">清盘人披露债权申报</div>
+        <p class="x">清盘人清盘进展报告披露：已收到 187 份债权证明表，申报债权总额约 3500 亿港元（约 450 亿美元）。</p><span class="s">来源：清盘进展报告，财联社报道</span></div></div>
+
+      <div class="node rv"><div class="card"><div class="d">2025-08-25</div><div class="t">中国恒大被取消上市地位</div>
+        <p class="x">港交所上市委员会决定依《上市规则》第 6.01A(1) 条取消中国恒大上市地位，自 2025-08-25 上午 9 时起生效，结束近 16 年上市历史。股份自 2024-01-29 起停牌。</p><span class="s">来源：港交所监管公告（2025-08-20 刊发）与公司公告</span></div></div>
+
+      <div class="node rv"><div class="card"><div class="d">2025-11-26</div><div class="t">境外资产禁制令扩大</div>
+        <p class="x">据公开报道，香港高等法院判决扩大对许家印前妻丁玉梅的资产禁制令范围，将其在多地约 2.2 亿美元资产纳入冻结，为清盘人追产行动的一部分。</p><span class="s">来源：香港高等法院判决报道（新浪财经等）</span></div></div>
+
+      <div class="node rv"><div class="card"><div class="d">2026-04-13 ~ 14</div><div class="t">深圳中院一审开庭</div>
+        <p class="x">广东省深圳市中级人民法院开庭审理恒大集团、恒大地产及许家印案；据新华社报道，许家印当庭表示认罪悔罪，法庭宣布择期宣判。</p><span class="s">来源：新华网（2026-04-14）、深圳市中级人民法院通报</span></div></div>
+
+      <div class="node final hot rv"><div class="card"><div class="d">2026-08-20</div><div class="t">一审宣判：无期徒刑</div>
+        <p class="x">深圳市中级人民法院一审公开宣判：许家印因非法吸收公众存款罪、集资诈骗罪、违法发放贷款罪、违法运用资金罪、欺诈发行证券罪、违规披露重要信息罪、职务侵占罪、单位行贿罪共八项罪名，数罪并罚，判处无期徒刑、剥夺政治权利终身，并处没收个人全部财产；恒大集团、恒大地产被处罚金合计 158.2 亿元；同案另有 56 人被判处有期徒刑。</p><span class="s">来源：深圳市中级人民法院通报及多家媒体报道（2026-08-20 / 21）</span></div></div>
+
+      <div class="node hot rv"><div class="card"><div class="d">2026-08-21</div><div class="t">恒大地产进入破产清算</div>
+        <p class="x">广州市中级人民法院裁定受理恒大地产集团有限公司破产清算案，申请人为广州农村商业银行股份有限公司华夏支行，理由为不能清偿到期债务且资产不足以清偿全部债务。</p><span class="s">来源：广州市中级人民法院公告、央视新闻等</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 判决 ================= -->
+<section id="verdict">
+  <div class="wrap">
+    <p class="eyebrow rv">04 / 一审判决要点</p>
+    <h2 class="rv">八项罪名与量刑</h2>
+    <p class="muted rv" style="max-width:70ch">2026-08-20，深圳市中级人民法院一审公开宣判。下列内容为法院通报与媒体报道的整理，属<strong>一审</strong>结果。</p>
+
+    <div class="charges rv">
+      <span class="charge">非法吸收公众存款罪</span>
+      <span class="charge">集资诈骗罪</span>
+      <span class="charge">违法发放贷款罪</span>
+      <span class="charge">违法运用资金罪</span>
+      <span class="charge">欺诈发行证券罪</span>
+      <span class="charge">违规披露重要信息罪</span>
+      <span class="charge">职务侵占罪</span>
+      <span class="charge">单位行贿罪</span>
+    </div>
+
+    <div class="grid g2">
+      <div class="card rv">
+        <h3>对许家印</h3>
+        <p class="sent">无期徒刑 · 剥夺政治权利终身 · 没收个人全部财产</p>
+        <div class="kv"><b>量刑方式</b><span>八项罪名数罪并罚</span></div>
+        <div class="kv"><b>审理法院</b><span>广东省深圳市中级人民法院（一审）</span></div>
+        <div class="kv"><b>开庭时间</b><span>2026-04-13 至 04-14，许家印当庭表示认罪悔罪</span></div>
+        <div class="kv"><b>宣判时间</b><span>2026-08-20</span></div>
+        <div class="kv"><b>二审情况</b><span>截至本页撰写时未见公开信息</span></div>
+      </div>
+      <div class="card rv">
+        <h3>对被告单位与同案人员</h3>
+        <div class="kv"><b>罚金</b><span>恒大集团、恒大地产被处罚金合计 158.2 亿元</span></div>
+        <div class="kv"><b>同案人数</b><span>56 人被判处有期徒刑 18 年至 1 年 10 个月</span></div>
+        <div class="kv"><b>公开姓名</b><span>报道提及甄立涛、柯鹏、许腾鹤、许智健、杜亮、梁栋等</span></div>
+        <div class="kv"><b>法院认定</b><span>2016—2021 年间持续、大规模财务造假，虚增资产、隐瞒负债，并实施非法吸收公众存款、集资诈骗等行为</span></div>
+        <div class="kv"><b>后续</b><span>2026-08-21 广州中院受理恒大地产破产清算案</span></div>
+      </div>
+    </div>
+    <p class="tiny rv" style="margin-top:16px">注：以上为公开报道整理，细节（如罚金在两被告单位之间的分配、在案罪名与刑期的对应关系）请以深圳市中级人民法院通报及官方文书为准。</p>
+  </div>
+</section>
+
+<!-- ================= 音画 ================= -->
+<section id="media">
+  <div class="wrap">
+    <p class="eyebrow rv">05 / 音画档案</p>
+    <h2 class="rv">《空城计の小曲》</h2>
+    <p class="muted rv" style="max-width:70ch">
+      主媒体是从本 U 盘复制进来的网友二创视频；备用是一首独立的 mp3 背景音乐。
+      两者都<strong>只在本机播放本地文件</strong>，不上传、不联网。
+    </p>
+
+    <div class="stage rv" id="stage">
+      <span class="badge">网友二创 · 非事实来源 · 仅氛围用途</span>
+      <video id="video" playsinline preload="metadata" loop src="assets/media/kongchengji.mp4"></video>
+      <div class="vl" aria-hidden="true"></div>
+      <canvas id="viz" aria-hidden="true"></canvas>
+      <div class="veil" id="veil"><span>▶ 点击「开启音画档案」或按空格播放《空城计の小曲》</span></div>
+    </div>
+
+    <div class="mediabar rv">
+      <button class="btn" id="mPlay">▶ 播放 / 暂停</button>
+      <button class="btn ghost" id="mFull">⛶ 全屏</button>
+      <label class="filepick">🗂 视频没加载？手动选择本地视频
+        <input type="file" id="pickVideo" accept="video/*">
+      </label>
+      <span class="sp"></span>
+      <span class="pill">键盘 · <span class="kbd">空格</span> 播放/暂停</span>
+      <span class="pill">键盘 · <span class="kbd">←</span> <span class="kbd">→</span> 跳转节点</span>
+    </div>
+
+    <div class="grid g2" style="margin-top:20px">
+      <div class="card rv">
+        <h3>备用音轨（独立 mp3）</h3>
+        <p class="tiny">文件：<code>assets/audio/pengyou-de-jiu.mp3</code> —— 《朋友的酒》，原唱李晓杰。版权归原作者及版权方所有，本页仅播放 U 盘上已有的私人文件，不提供下载、不转载歌词全文。</p>
+        <audio id="audio" preload="metadata" loop src="assets/audio/pengyou-de-jiu.mp3" style="width:100%;margin-top:10px"></audio>
+        <label class="filepick">🗂 音频没加载？手动选择本地音乐
+          <input type="file" id="pickAudio" accept="audio/*">
+        </label>
+      </div>
+      <div class="card rv">
+        <h3>为什么需要点一下才响？</h3>
+        <p class="tiny">
+          现代浏览器禁止页面在没有用户操作的情况下自动出声，这是安全策略而非本页故障。点击「开启音画档案」或播放器按钮即完成这次操作。<br><br>
+          另外，网页无法自行读取 U 盘目录：因此本站把视频与音频<strong>复制到了站点目录内</strong>，用相对路径引用，这样双击 <code>index.html</code> 也能直接播放；若浏览器仍拦截，上面的「手动选择」入口可临时指定文件。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 名词 ================= -->
+<section id="glossary">
+  <div class="wrap">
+    <p class="eyebrow rv">06 / 名词解释</p>
+    <h2 class="rv">看懂这案子需要的六个词</h2>
+    <div style="margin-top:24px">
+      <details class="acc rv" open><summary>高杠杆 · 高周转</summary>
+        <div class="body">用大量借来的钱买地、开工、快速销售回款，再拿回款去拿下一块地。只要房价与销售持续上行，规模可以指数级放大；一旦融资收紧或销售下滑，现金流立刻断裂。恒大是这一模式的极端样本。</div></details>
+      <details class="acc rv"><summary>「三条红线」</summary>
+        <div class="body">2020 年 8 月监管部门提出的房企融资管理规则，以剔除预收款后的资产负债率、净负债率、现金短债比三项指标给房企划档，越线者融资受限。它直接压缩了高负债房企的借新还旧空间。</div></details>
+      <details class="acc rv"><summary>商票与表外负债</summary>
+        <div class="body">商业承兑票据是房企向供应商「打白条」的常见工具，在财务报表上不一定计入有息负债，却构成真实的偿付义务。恒大危机中，大量商票逾期成为供应链连锁反应的起点。</div></details>
+      <details class="acc rv"><summary>清盘呈请 · 清盘令 · 清盘人</summary>
+        <div class="body">债权人向法院申请对无力偿债的公司进行清算，即清盘呈请；法院颁令即清盘令；随后由法院委任清盘人接管公司、变现资产、按法定顺序向债权人分配。中国恒大 2024-01-29 被颁清盘令，但因主要资产在内地，跨境执行复杂、进展缓慢。</div></details>
+      <details class="acc rv"><summary>非法吸收公众存款 vs 集资诈骗</summary>
+        <div class="body">前者指向不特定公众吸收资金、承诺还本付息，扰乱金融秩序；后者在此基础上要求行为人具有非法占有目的，即「以集资为名、行占有之实」，法定刑明显更重。本案两项罪名同时成立。</div></details>
+      <details class="acc rv"><summary>终身证券市场禁入</summary>
+        <div class="body">证监会作出的一种行政监管措施：被处罚人在规定期限内（终身即永久）不得从事证券业务或担任上市公司董监高。2024 年许家印被采取该项措施，属行政处罚而非刑事处罚，与 2026 年的一审判决是两条相互独立的追责路径。</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 来源 ================= -->
+<section id="sources">
+  <div class="wrap">
+    <p class="eyebrow rv">07 / 来源</p>
+    <h2 class="rv">公开报道与公告清单</h2>
+    <p class="muted rv" style="max-width:70ch">按时间排列。链接以纯文本展示，本页不联网加载任何外部资源。</p>
+    <ol class="srcs rv">
+      <li>中国恒大集团公告：许家印因涉嫌违法犯罪被依法采取强制措施<em>公司公告 · 2023-09-28</em></li>
+      <li>中国恒大集团公告：香港高等法院颁令清盘、股份暂停买卖<em>公司公告 / 港交所 · 2024-01-29</em></li>
+      <li>中国证监会行政处罚：恒大地产 41.75 亿元、许家印 4700 万元及终身证券市场禁入<em>中国证监会 · 2024-05-31（据公开报道）</em></li>
+      <li>清盘人清盘进展报告：收到 187 份债权证明，申报债权约 3500 亿港元<em>清盘人报告 · 数据截至 2025-07-31（财联社报道）</em></li>
+      <li>港交所监管公告：由 2025-08-25 上午 9 时起取消中国恒大上市地位（《上市规则》第 6.01A(1) 条）<em>香港交易所 · 2025-08-20 刊发</em></li>
+      <li>财新网：港交所取消中国恒大上市地位 8 月 25 日除牌退市<em>财新网 · 2025-08-12</em></li>
+      <li>新华网：中国恒大被取消上市地位（退市）<em>新华网 · 2025-08-13</em></li>
+      <li>香港高等法院判决：扩大对丁玉梅资产禁制令，涉及约 2.2 亿美元<em>香港高等法院 · 2025-11-26（新浪财经等报道）</em></li>
+      <li>新华网：恒大集团、恒大地产及许家印案一审开庭（许家印当庭认罪悔罪，择期宣判）<em>新华网 / 深圳市中级人民法院 · 2026-04-14</em></li>
+      <li>深圳中院一审宣判：许家印犯八项罪名，判处无期徒刑、剥夺政治权利终身、没收个人全部财产；恒大集团与恒大地产罚金合计 158.2 亿元；同案 56 人获刑<em>深圳市中级人民法院通报 · 2026-08-20</em></li>
+      <li>明报：许家印 8 罪判无期徒刑　恒大罚 158 亿　两子及前高层等 56 人同判囚<em>明报 · 2026-08-21</em></li>
+      <li>36氪：恒大的终局，时代的标本（一审判决要点梳理）<em>36氪 · 2026-08</em></li>
+      <li>美国之音：许家印被判无期意味着什么<em>VOA 中文 · 2026-08-20</em></li>
+      <li>广州市中级人民法院公告：依法受理恒大地产集团有限公司破产清算案<em>广州中院 / 央视新闻 · 2026-08-21</em></li>
+      <li>维基百科「恒大债务危机」条目：截至 2022-12-31 恒大集团总负债 24374.1 亿元人民币<em>维基百科（汇总公司年报）· 检索于 2026-09</em></li>
+    </ol>
+    <p class="tiny rv" style="margin-top:14px">说明：部分条目为多家媒体的共同报道，本页择要标注；原始链接可自行检索标题核对。任何与本页表述冲突的官方发布，一律以官方发布为准。</p>
+  </div>
+</section>
+
+<!-- ================= 免责 ================= -->
+<section id="disclaimer">
+  <div class="wrap">
+    <p class="eyebrow rv">08 / 免责声明</p>
+    <h2 class="rv">使用须知</h2>
+    <div class="disc rv">
+      <p>本页是个人学习用途的<strong>公开信息整理</strong>，不代表任何机构立场，也不构成法律意见或投资建议。</p>
+      <p>所载内容来自公开报道、公司公告与司法机关通报的转述，可能存在滞后、遗漏或转述误差；一切以官方发布的文书与公告为准。涉及正在进行的司法程序的部分，页面仅陈述已公开的信息，不作推测、不作评价、不涉及未公开的案情细节。</p>
+      <p>页面不刊载任何真人肖像，视觉元素均为程序生成的抽象图形。若当事人或权利方认为某处内容不妥，可要求删除相应段落。</p>
+      <p class="tiny">音频与视频：《朋友的酒》（原唱：李晓杰）词曲及录音版权归原作者与版权方所有；页面播放的视频为网友二次创作内容，与事实无关，仅作氛围用途，本页不提供下载、不转载歌词全文、不用于任何商业目的。所有媒体文件均来自本机 U 盘，页面不进行任何上传或网络请求。</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    许家印 · 公开信息档案 &nbsp;|&nbsp; 纯静态离线页面，无外部依赖、无网络请求、无追踪 &nbsp;|&nbsp; 资料截止 2026 年 9 月，以官方发布为准
+  </div>
+</footer>
+
+<!-- ================= 浮动播放器 ================= -->
+<div class="player hidden" id="player" role="group" aria-label="音画播放器">
+  <div class="row">
+    <button class="pbtn" id="pToggle" aria-label="播放或暂停">▶</button>
+    <div class="ptitle"><b id="pName">《空城计の小曲》· 二创视频</b><span id="pState">已暂停 · 点击播放</span></div>
+    <button class="pbtn sm" id="pMute" aria-label="静音" title="静音">🔊</button>
+    <button class="pbtn sm on" id="pLoop" aria-label="循环" title="单曲循环">🔁</button>
+  </div>
+  <div class="seek" id="pSeek" role="slider" aria-label="播放进度" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <i id="pFill"></i><b id="pKnob"></b>
+  </div>
+  <div class="row">
+    <span class="time" id="pT1">00:00</span>
+    <div class="vol">
+      <span class="tiny">音量</span>
+      <input type="range" id="pVol" min="0" max="1" step="0.01" value="0.85" aria-label="音量">
+    </div>
+    <span class="time" id="pT2">00:00</span>
+  </div>
+  <div class="err" id="pErr"></div>
+</div>
+
+<script>
+(function(){
+"use strict";
+var RM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var $ = function(s){ return document.querySelector(s); };
+var $$ = function(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); };
+var isTouch = window.matchMedia && window.matchMedia("(hover: none)").matches;
+
+/* ---------- 提示条 ---------- */
+var toastEl = $("#toast"), toastTimer = null;
+function toast(msg){
+  toastEl.textContent = msg; toastEl.classList.add("show");
+  clearTimeout(toastTimer); toastTimer = setTimeout(function(){ toastEl.classList.remove("show"); }, 2600);
+}
+
+/* ---------- 进度条 / 指针光晕 ---------- */
+var pbar = $("#pbar");
+function onScroll(){
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  var p = h > 0 ? (window.scrollY / h) * 100 : 0;
+  pbar.style.width = p + "%";
+}
+window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+var mx = 0.5, my = 0.3;
+window.addEventListener("pointermove", function(e){
+  mx = e.clientX / window.innerWidth; my = e.clientY / window.innerHeight;
+  document.documentElement.style.setProperty("--mx", (mx*100).toFixed(2) + "%");
+  document.documentElement.style.setProperty("--my", (my*100).toFixed(2) + "%");
+}, {passive:true});
+
+/* ---------- 自定义光标 ---------- */
+var cur = $("#cursor");
+if(!isTouch && !RM){
+  document.body.classList.add("no-cursor");
+  var cx = window.innerWidth/2, cy = window.innerHeight/2, tx = cx, ty = cy;
+  window.addEventListener("pointermove", function(e){ tx = e.clientX; ty = e.clientY; }, {passive:true});
+  window.addEventListener("pointerdown", function(){ cur.classList.add("dot"); });
+  window.addEventListener("pointerup", function(){ cur.classList.remove("dot"); });
+  document.addEventListener("mouseleave", function(){ cur.classList.add("hide"); });
+  document.addEventListener("mouseenter", function(){ cur.classList.remove("hide"); });
+  $$("a,button,summary,.card,.charge,input,label").forEach(function(el){
+    el.addEventListener("pointerenter", function(){ cur.classList.add("hot"); });
+    el.addEventListener("pointerleave", function(){ cur.classList.remove("hot"); });
+  });
+  (function loopCursor(){
+    cx += (tx-cx)*0.18; cy += (ty-cy)*0.18;
+    cur.style.transform = "translate(" + cx + "px," + cy + "px)";
+    requestAnimationFrame(loopCursor);
+  })();
+}
+
+/* ---------- 涟漪 / 触感 ---------- */
+function ripple(e){
+  var b = e.currentTarget, r = b.getBoundingClientRect();
+  var s = document.createElement("span");
+  s.className = "rip";
+  var rad = Math.max(r.width, r.height) * 2.2;
+  s.style.width = s.style.height = rad + "px";
+  s.style.left = (e.clientX - r.left) + "px";
+  s.style.top  = (e.clientY - r.top) + "px";
+  b.appendChild(s); setTimeout(function(){ s.remove(); }, 680);
+  if(navigator.vibrate){ try{ navigator.vibrate(12); }catch(err){} }
+}
+$$(".btn").forEach(function(b){ b.addEventListener("click", ripple); });
+
+/* ---------- 磁吸主按钮 ---------- */
+if(!isTouch && !RM){
+  var sb = $("#startBtn");
+  if(sb){
+    sb.addEventListener("pointermove", function(e){
+      var r = sb.getBoundingClientRect();
+      var dx = (e.clientX - (r.left + r.width/2)) / r.width;
+      var dy = (e.clientY - (r.top + r.height/2)) / r.height;
+      sb.style.transform = "translate(" + (dx*14).toFixed(1) + "px," + (dy*10).toFixed(1) + "px)";
+    });
+    sb.addEventListener("pointerleave", function(){ sb.style.transform = ""; });
+  }
+}
+
+/* ---------- 3D 倾斜 ---------- */
+if(!isTouch && !RM){
+  $$(".tilt").forEach(function(card){
+    card.addEventListener("pointermove", function(e){
+      var r = card.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+      card.style.transform = "perspective(900px) rotateY(" + (px*6).toFixed(2) + "deg) rotateX(" + (-py*6).toFixed(2) + "deg) translateY(-5px)";
+    });
+    card.addEventListener("pointerleave", function(){ card.style.transform = ""; });
+  });
+}
+
+/* ---------- 数字滚动 ---------- */
+function countUp(scope){
+  var nodes = Array.prototype.slice.call(scope.querySelectorAll ? scope.querySelectorAll(".num") : []);
+  if(!nodes.length && scope.classList && scope.classList.contains("num")) nodes = [scope];
+  nodes.forEach(function(n){
+    if(n.dataset.done) return; n.dataset.done = "1";
+    var target = parseFloat(n.dataset.count || "0"), dec = parseInt(n.dataset.dec || "0", 10);
+    var unit = n.querySelector(".u"), ut = unit ? unit.outerHTML : "";
+    var t0 = null, dur = RM ? 0 : 1500;
+    function step(ts){
+      if(t0 === null) t0 = ts;
+      var k = dur ? Math.min((ts - t0)/dur, 1) : 1;
+      var e = 1 - Math.pow(1 - k, 3);
+      var v = target * e;
+      var s = dec ? v.toFixed(dec) : Math.round(v).toString();
+      if(dec && target >= 1000) s = v.toFixed(dec).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      n.innerHTML = s + ut;
+      if(k < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  });
+}
+
+/* ---------- 进场动画 ---------- */
+var io = "IntersectionObserver" in window ? new IntersectionObserver(function(es){
+  es.forEach(function(en){
+    if(en.isIntersecting){
+      var el = en.target;
+      if(RM){ el.classList.add("in"); } else { setTimeout(function(){ el.classList.add("in"); }, 60); }
+      io.unobserve(el);
+      if(el.querySelector(".num")) countUp(el);
+    }
+  });
+}, {threshold:.12, rootMargin:"0px 0px -8% 0px"}) : null;
+$$(".rv").forEach(function(el){
+  if(io){ io.observe(el); } else { el.classList.add("in"); if(el.querySelector(".num")) countUp(el); }
+});
+
+/* ---------- 极光背景 ---------- */
+(function aurora(){
+  var c = $("#aurora"), ctx = c.getContext("2d");
+  var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 2);
+  var blobs = [], parts = [];
+  var COUNT = isTouch ? 26 : 54;
+  function resize(){
+    W = c.width = Math.floor(window.innerWidth * DPR);
+    H = c.height = Math.floor(window.innerHeight * DPR);
+    c.style.width = window.innerWidth + "px"; c.style.height = window.innerHeight + "px";
+    blobs = [
+      {x:.18,y:.22,r:.46,c:[232,195,122],sx:.00021,sy:.00017},
+      {x:.82,y:.30,r:.42,c:[79,216,232],sx:-.00017,sy:.00023},
+      {x:.55,y:.86,r:.50,c:[139,123,255],sx:.00013,sy:-.00019},
+      {x:.30,y:.70,r:.34,c:[255,77,94],sx:-.00023,sy:-.00013,o:.5}
+    ];
+    parts = [];
+    for(var i=0;i<COUNT;i++){
+      parts.push({x:Math.random(),y:Math.random(),z:.3+Math.random()*.7,
+        vx:(Math.random()-.5)*.00006, vy:-(.00002+Math.random()*.00007),
+        r:.6+Math.random()*1.7, a:.14+Math.random()*.5});
+    }
+  }
+  resize(); window.addEventListener("resize", resize, {passive:true});
+
+  function frame(t){
+    ctx.clearRect(0,0,W,H);
+    ctx.globalCompositeOperation = "lighter";
+    var px = (mx - .5), py = (my - .5);
+    for(var i=0;i<blobs.length;i++){
+      var b = blobs[i];
+      var bx = (b.x + Math.sin(t*b.sx)*0.06 - px*0.03) * W;
+      var by = (b.y + Math.cos(t*b.sy)*0.06 - py*0.03) * H;
+      var rad = b.r * Math.max(W,H) * (1 + Math.sin(t*0.0004 + i)*0.05);
+      var g = ctx.createRadialGradient(bx,by,0,bx,by,rad);
+      var al = (b.o || .55) * (RM ? .5 : .75);
+      g.addColorStop(0, "rgba(" + b.c[0] + "," + b.c[1] + "," + b.c[2] + "," + al.toFixed(3) + ")");
+      g.addColorStop(.45,"rgba(" + b.c[0] + "," + b.c[1] + "," + b.c[2] + "," + (al*.22).toFixed(3) + ")");
+      g.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(bx,by,rad,0,6.2832); ctx.fill();
+    }
+    if(!RM){
+      for(var j=0;j<parts.length;j++){
+        var p = parts[j];
+        p.x += p.vx * (1 + (mx-.5)*.6); p.y += p.vy;
+        if(p.y < -.02){ p.y = 1.02; p.x = Math.random(); }
+        if(p.x < -.02) p.x = 1.02;
+        if(p.x > 1.02) p.x = -.02;
+        var gx = p.x*W, gy = p.y*H;
+        ctx.fillStyle = "rgba(255,236,200," + (p.a*0.55).toFixed(3) + ")";
+        ctx.beginPath(); ctx.arc(gx,gy,p.r*DPR*p.z,0,6.2832); ctx.fill();
+      }
+    }
+    ctx.globalCompositeOperation = "source-over";
+  }
+  var hidden = false;
+  document.addEventListener("visibilitychange", function(){ hidden = document.hidden; });
+  if(RM){ frame(1200); }
+  else { (function loop(t){ if(!hidden) frame(t); requestAnimationFrame(loop); })(0); }
+})();
+
+/* ---------- 媒体与播放器 ---------- */
+var video = $("#video"), audio = $("#audio");
+var player = $("#player"), pToggle = $("#pToggle"), pMute = $("#pMute"), pLoop = $("#pLoop");
+var pSeek = $("#pSeek"), pFill = $("#pFill"), pKnob = $("#pKnob");
+var pT1 = $("#pT1"), pT2 = $("#pT2"), pVol = $("#pVol"), pErr = $("#pErr");
+var pName = $("#pName"), pState = $("#pState"), heroEq = $("#heroEq"), veil = $("#veil");
+var media = video;
+
+function fmt(s){
+  if(!isFinite(s) || s < 0) s = 0;
+  var m = Math.floor(s/60), q = Math.floor(s%60);
+  return (m<10?"0":"") + m + ":" + (q<10?"0":"") + q;
+}
+function setState(txt){ pState.textContent = txt; }
+function showErr(msg){ pErr.textContent = msg; pErr.classList.add("show"); player.classList.remove("hidden"); }
+function hideErr(){ pErr.classList.remove("show"); }
+
+video.addEventListener("error", function(){
+  showErr("视频加载失败：可能文件缺失或被浏览器拦截。用下方「手动选择本地视频」指定 U 盘里的 mp4 即可。");
+});
+audio.addEventListener("error", function(){
+  showErr("备用音频加载失败：请用「手动选择本地音乐」指定 mp3 文件。");
+});
+
+function bindFile(input, el, kind){
+  if(!input) return;
+  input.addEventListener("change", function(){
+    var f = input.files && input.files[0]; if(!f) return;
+    try{
+      el.src = URL.createObjectURL(f);
+      el.load(); hideErr();
+      toast("已载入本地文件：" + f.name);
+      useMedia(el, kind); play();
+    }catch(err){ showErr("无法读取该文件：" + err.message); }
+  });
+}
+bindFile($("#pickVideo"), video, "video");
+bindFile($("#pickAudio"), audio, "audio");
+
+function useMedia(el, kind){
+  media = el;
+  pName.textContent = (kind === "video") ? "《空城计の小曲》· 二创视频" : "《朋友的酒》· 备用音轨";
+  hideErr(); paint();
+}
+function play(){
+  var pr = media.play();
+  if(pr && pr.catch){
+    pr.catch(function(err){
+      showErr("播放被拦截或文件不可用（" + ((err && err.name) || "错误") + "）。请再点一次播放按钮。");
+    });
+  }
+}
+function toggle(){ if(media.paused) play(); else media.pause(); }
+function paint(){
+  var paused = media.paused;
+  pToggle.textContent = paused ? "▶" : "❙❙";
+  setState(paused ? "已暂停 · 点击播放" : "正在播放 · 本地文件");
+  heroEq.classList.toggle("off", paused);
+  if(veil) veil.classList.toggle("off", !(media === video && paused));
+  var d = media.duration, c = media.currentTime;
+  pT1.textContent = fmt(c); pT2.textContent = fmt(d);
+  var p = (isFinite(d) && d > 0) ? (c/d) : 0;
+  pFill.style.width = (p*100).toFixed(2) + "%";
+  pKnob.style.left = (p*100).toFixed(2) + "%";
+  pSeek.setAttribute("aria-valuenow", String(Math.round(p*100)));
+}
+pToggle.addEventListener("click", toggle);
+$("#mPlay").addEventListener("click", toggle);
+$("#mFull").addEventListener("click", function(){
+  var st = $("#stage");
+  if(st.requestFullscreen) st.requestFullscreen();
+  else if(video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+  else toast("当前浏览器不支持全屏 API");
+});
+pMute.addEventListener("click", function(){
+  media.muted = !media.muted;
+  pMute.textContent = media.muted ? "🔇" : "🔊";
+  save();
+});
+pLoop.addEventListener("click", function(){
+  media.loop = !media.loop;
+  pLoop.classList.toggle("on", media.loop);
+  save();
+});
+pVol.addEventListener("input", function(){
+  media.volume = parseFloat(pVol.value);
+  if(media.volume > 0 && media.muted){ media.muted = false; pMute.textContent = "🔊"; }
+  save();
+});
+function seekTo(ratio){
+  var d = media.duration; if(!isFinite(d) || d <= 0) return;
+  media.currentTime = Math.max(0, Math.min(1, ratio)) * d; paint();
+}
+pSeek.addEventListener("click", function(e){
+  var r = pSeek.getBoundingClientRect();
+  seekTo((e.clientX - r.left) / r.width);
+});
+pSeek.addEventListener("keydown", function(e){
+  var d = media.duration || 1;
+  if(e.key === "ArrowRight"){ seekTo((media.currentTime + 10)/d); e.preventDefault(); }
+  if(e.key === "ArrowLeft"){ seekTo((media.currentTime - 10)/d); e.preventDefault(); }
+  if(e.key === " " || e.key === "Enter"){ toggle(); e.preventDefault(); }
+});
+
+["play","pause","ended","loadedmetadata","timeupdate","volumechange","progress","ratechange"].forEach(function(ev){
+  video.addEventListener(ev, paint); audio.addEventListener(ev, paint);
+});
+video.addEventListener("timeupdate", function(){ if(Math.floor(video.currentTime) % 5 === 0) save(); });
+
+$("#startBtn").addEventListener("click", function(){
+  useMedia(video, "video");
+  player.classList.remove("hidden");
+  play();
+  toast("已开启音画档案 —— 空格可暂停/继续");
+  setTimeout(function(){
+    var tl = document.getElementById("timeline");
+    if(tl && window.scrollY < 80) tl.scrollIntoView({behavior: RM ? "auto" : "smooth"});
+  }, 1200);
+});
+
+/* ---------- 键盘 ---------- */
+document.addEventListener("keydown", function(e){
+  var tag = ((e.target && e.target.tagName) || "").toLowerCase();
+  if(tag === "input" || tag === "textarea") return;
+  if(e.code === "Space"){ e.preventDefault(); toggle(); player.classList.remove("hidden"); }
+  if(e.key === "Escape"){ pErr.classList.remove("show"); }
+  if(e.key === "ArrowRight" || e.key === "ArrowLeft"){
+    if(e.altKey) return;
+    e.preventDefault();
+    var nodes = $$(".node"); if(!nodes.length) return;
+    var idx = -1;
+    for(var i=0;i<nodes.length;i++){
+      if(nodes[i].getBoundingClientRect().top > window.innerHeight*0.34){ idx = i; break; }
+    }
+    if(idx < 0) idx = nodes.length - 1;
+    var target = (e.key === "ArrowRight") ? nodes[Math.min(nodes.length-1, idx)] : nodes[Math.max(0, idx-1)];
+    if(target){
+      target.scrollIntoView({behavior: RM ? "auto" : "smooth", block:"center"});
+      if(navigator.vibrate){ try{ navigator.vibrate(8); }catch(err){} }
+    }
+  }
+});
+
+/* ---------- 波形可视化：优先 WebAudio，失败则合成动画 ---------- */
+(function viz(){
+  var c = $("#viz"), ctx = c.getContext("2d");
+  var ac = null, an = null, data = null, ok = false;
+  function init(){
+    if(ac) return;
+    /* 用 file:// 双击打开时，部分浏览器会把本地媒体判为跨源，WebAudio 接线后可能只剩静音。
+       为了确保《空城计の小曲》一定能听到，本地文件协议下不接管音频输出，只用合成波形做可视化。 */
+    if(location.protocol === "file:"){ ok = false; return; }
+    try{
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if(!AC) return;
+      ac = new AC();
+      var node = ac.createMediaElementSource(video);
+      an = ac.createAnalyser(); an.fftSize = 256; an.smoothingTimeConstant = .8;
+      node.connect(an); an.connect(ac.destination);
+      data = new Uint8Array(an.frequencyBinCount);
+      ok = true;
+    }catch(err){ ok = false; }
+  }
+  var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 2), phase = 0;
+  function resize(){
+    W = c.width = Math.floor((c.clientWidth || 400) * DPR);
+    H = c.height = Math.floor((c.clientHeight || 60) * DPR);
+  }
+  resize(); window.addEventListener("resize", resize, {passive:true});
+  $("#startBtn").addEventListener("click", function(){ try{ init(); if(ac && ac.state === "suspended") ac.resume(); }catch(err){} });
+  video.addEventListener("play", function(){ try{ init(); if(ac && ac.state === "suspended") ac.resume(); }catch(err){} });
+
+  function draw(){
+    phase += 0.045;
+    var playing = !video.paused && !video.ended;
+    ctx.clearRect(0,0,W,H);
+    var bars = 56, bw = W / bars;
+    if(ok && playing){ an.getByteFrequencyData(data); }
+    for(var i=0;i<bars;i++){
+      var v;
+      if(ok && playing){ v = data[Math.floor(i * data.length / bars)] / 255; }
+      else {
+        var base = playing ? 0.42 : 0.10;
+        v = base + Math.sin(phase + i*0.42) * (playing ? 0.30 : 0.06) + Math.sin(phase*0.5 + i*0.13) * 0.16;
+        v = Math.max(0.04, Math.min(1, v));
+      }
+      var h = Math.max(2, v * H * 0.92);
+      var g = ctx.createLinearGradient(0, H, 0, H - h);
+      g.addColorStop(0, "rgba(79,216,232,.15)");
+      g.addColorStop(.55,"rgba(232,195,122,.55)");
+      g.addColorStop(1, "rgba(255,223,168,.95)");
+      ctx.fillStyle = g;
+      var x = i*bw + bw*0.18, w = Math.max(1.4, bw*0.64);
+      ctx.beginPath();
+      if(ctx.roundRect) ctx.roundRect(x, H - h, w, h, Math.min(w/2, 3));
+      else ctx.rect(x, H - h, w, h);
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  if(!RM){ draw(); } else { phase = 1.2; draw(); }
+})();
+
+/* ---------- 状态持久化 ---------- */
+function save(){
+  try{
+    localStorage.setItem("xjy.player", JSON.stringify({ v: media.volume, m: media.muted, l: media.loop }));
+  }catch(err){}
+}
+(function load(){
+  try{
+    var s = JSON.parse(localStorage.getItem("xjy.player") || "null");
+    if(s){
+      if(typeof s.v === "number"){ pVol.value = s.v; video.volume = s.v; audio.volume = s.v; }
+      if(s.m){ video.muted = true; audio.muted = true; pMute.textContent = "🔇"; }
+      if(s.l === false){ video.loop = false; audio.loop = false; pLoop.classList.remove("on"); }
+    } else { video.volume = audio.volume = 0.85; }
+  }catch(err){}
+})();
+paint();
+
+setTimeout(function(){ toast("提示：点「开启音画档案」后《空城计の小曲》才会播放"); }, 1800);
+})();
+</script>
+</body>
+</html>
