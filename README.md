@@ -6,6 +6,14 @@ Public-information archive on **Xu Jiayin (Hui Ka Yan)**, founder and former cha
 
 ---
 
+## 🔗 在线访问
+
+**<https://sharkyworkshop.github.io/Hui-Ka-Yan-personal-website/>**
+
+已通过 GitHub Pages 静态部署（`main` 分支根目录 + `.nojekyll`）。
+
+---
+
 ## 中文说明
 
 ### 这是什么
